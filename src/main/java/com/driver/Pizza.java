@@ -36,8 +36,9 @@ public class Pizza {
         if (!extraCheeseAdded){
             price += extraCheesePrice;
             extraCheeseAdded = true;
+            bill += "Extra Cheese Added: "+extraCheesePrice+"\n";
         }
-        bill += "Extra Cheese Added: "+extraCheesePrice+"\n";
+
     }
 
     public void addExtraToppings(){
@@ -51,17 +52,19 @@ public class Pizza {
         if (!extraToppingsAdded) {
             price += extraToppingsPrice;
             extraToppingsAdded = true;
+            bill += "Extra Toppings Added: "+ extraToppingsPrice+"\n";
         }
-        bill += "Extra Toppings Added: "+ extraToppingsPrice+"\n";
+
     }
 
     public void addTakeaway(){
         // your code goes here
         if (!takeAwayAdded){
             price += takeAwayPrice;
+            takeAwayAdded = true;
+            bill += "Paperbag Added: "+ takeAwayPrice+"\n";
         }
-        takeAwayAdded = true;
-        bill += "Paperbag Added: "+ takeAwayPrice+"\n";
+
     }
 
     public String getBill(){
