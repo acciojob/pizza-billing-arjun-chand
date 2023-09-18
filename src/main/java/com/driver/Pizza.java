@@ -21,8 +21,10 @@ public class Pizza {
             basePrice = 300;
         else
             basePrice = 400;
-        price += basePrice;
+        price = basePrice;
+        bill = "Base Price Of The Pizza: "+basePrice+"\n";
     }
+
 
     public int getPrice(){
 
@@ -35,6 +37,7 @@ public class Pizza {
             price += extraCheesePrice;
             extraCheeseAdded = true;
         }
+        bill += "Extra Cheese Added: "+extraCheesePrice+"\n";
     }
 
     public void addExtraToppings(){
@@ -49,6 +52,7 @@ public class Pizza {
             price += extraToppingsPrice;
             extraToppingsAdded = true;
         }
+        bill += "Extra Toppings Added: "+ extraToppingsPrice+"\n";
     }
 
     public void addTakeaway(){
@@ -57,16 +61,13 @@ public class Pizza {
             price += takeAwayPrice;
         }
         takeAwayAdded = true;
+        bill += "Paperbag Added: "+ takeAwayPrice+"\n";
     }
 
     public String getBill(){
         // your code goes here
 
-        bill = "Base Price Of The Pizza: "+basePrice+"\n" +
-                "Extra Cheese Added: "+extraCheesePrice+"\n" +
-                "Extra Toppings Added: "+ extraToppingsPrice+"\n" +
-                "Paperbag Added: "+ takeAwayPrice+"\n"+
-                "Total Price:" + price+"\n";
+        bill += "Total Price:" + price+"\n";
         return this.bill;
     }
 }
