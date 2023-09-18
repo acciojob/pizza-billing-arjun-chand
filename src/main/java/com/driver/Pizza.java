@@ -13,6 +13,7 @@ public class Pizza {
     int takeAwayPrice = 20;
     public int totalPrice;
     boolean takeAwayAdded = false;
+    boolean isBillGenerated = false;
 
     public Pizza(Boolean isVeg){
         // your code goes here
@@ -22,7 +23,6 @@ public class Pizza {
         else
             basePrice = 400;
         price = basePrice;
-        bill = "Base Price Of The Pizza: "+basePrice+"\n";
     }
 
 
@@ -36,9 +36,7 @@ public class Pizza {
         if (!extraCheeseAdded){
             price += extraCheesePrice;
             extraCheeseAdded = true;
-            bill += "Extra Cheese Added: "+extraCheesePrice+"\n";
         }
-
     }
 
     public void addExtraToppings(){
@@ -52,25 +50,35 @@ public class Pizza {
         if (!extraToppingsAdded) {
             price += extraToppingsPrice;
             extraToppingsAdded = true;
-            bill += "Extra Toppings Added: "+ extraToppingsPrice+"\n";
         }
-
     }
 
     public void addTakeaway(){
         // your code goes here
         if (!takeAwayAdded){
             price += takeAwayPrice;
-            takeAwayAdded = true;
-            bill += "Paperbag Added: "+ takeAwayPrice+"\n";
         }
-
+        takeAwayAdded = true;
     }
 
     public String getBill(){
         // your code goes here
+        if(!isBillGenerated) {
+            bill = "Base Price Of The Pizza: " + basePrice + "\n";
 
-        bill += "Total Price:" + price+"\n";
+            if (extraCheeseAdded) {
+                bill += "Extra Cheese Added: " + extraCheesePrice + "\n";
+            }
+            if (extraToppingsAdded) {
+                bill += "Extra Toppings Added: " + extraToppingsPrice + "\n";
+            }
+            if (takeAwayAdded) {
+                bill += "Paperbag Added: " + takeAwayPrice + "\n";
+            }
+            bill += "Total Price:" + price;
+        }
+        isBillGenerated = true;
         return this.bill;
+
     }
 }
