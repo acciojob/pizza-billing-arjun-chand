@@ -3,20 +3,18 @@ package com.driver;
 public class Pizza {
 
     private int price;
-    private Boolean isVeg;
     private String bill;
     int extraCheesePrice;
     boolean extraCheeseAdded = false;
     int extraToppingsPrice;
     boolean extraToppingsAdded = false;
     int takeAwayPrice;
-    public int totalPrice;
     boolean takeAwayAdded = false;
     boolean isBillGenerated = false;
 
-    public Pizza(Boolean isVeg){
+    public Pizza(boolean isVeg){
         // your code goes here
-        this.isVeg = isVeg;
+
         if (isVeg) {
             this.price = 300;
             this.extraToppingsPrice = 70;
@@ -28,7 +26,6 @@ public class Pizza {
         this.extraCheesePrice = 80;
         this.takeAwayPrice = 20;
         this.bill = "Base Price Of The Pizza: " + this.price + "\n";
-        ;
     }
 
 
@@ -67,15 +64,15 @@ public class Pizza {
 
 
             if (extraCheeseAdded) {
-                bill += "Extra Cheese Added: " + this.extraCheesePrice + "\n";
+                bill = bill + "Extra Cheese Added: " + this.extraCheesePrice + "\n";
             }
             if (extraToppingsAdded) {
-                bill += "Extra Toppings Added: " + this.extraToppingsPrice + "\n";
+                bill = bill + "Extra Toppings Added: " + this.extraToppingsPrice + "\n";
             }
             if (takeAwayAdded) {
-                bill += "Paperbag Added: " + this.takeAwayPrice + "\n";
+                bill = bill +"Paperbag Added: " + this.takeAwayPrice + "\n";
             }
-            bill += "Total Price:" + this.price;
+            bill = bill + "Total Price:" + this.price;
             this.isBillGenerated = true;
         }
 
